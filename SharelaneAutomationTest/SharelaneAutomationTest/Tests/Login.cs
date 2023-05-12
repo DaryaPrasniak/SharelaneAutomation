@@ -11,9 +11,9 @@ namespace SharelaneAutomationTest
         [Test]
         public void Test1() 
         {
-            string email = "jennifer_huang@690.87.sharelane.com";
+            string email = "marina_wang@252.86.sharelane.com";
             string password = "1111";
-            string welcomeText = "Hello Jennifer";
+            string welcomeText = "Hello Marina";
 
             LoginPage.SetEmail(email);
             LoginPage.SetPassword(password);
@@ -35,7 +35,7 @@ namespace SharelaneAutomationTest
         [Test]
         public void Test2()
         {
-            string email = "jennifer_huang@690.87.sharelane.com";
+            string email = "marina_wang@252.86.sharelane.com";
             string password = "1111";
 
             LoginPage.Login(email, password);
