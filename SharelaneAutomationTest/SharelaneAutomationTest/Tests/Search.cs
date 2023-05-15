@@ -16,9 +16,8 @@ namespace SharelaneAutomationTest.Tests
             string searchText = "Adventures";
 
             SearchPage.Search(searchText);
-
-            var addToCartButton = ChromeDriver.FindElement(By.XPath("//table/tbody/tr[5]/td/table[2]"));
-            Assert.IsTrue(addToCartButton != null);
+        
+            Assert.IsTrue(SearchPage.AddToCartButton1 != null);
         }
     }
 }

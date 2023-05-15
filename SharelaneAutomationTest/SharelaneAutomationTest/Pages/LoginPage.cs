@@ -13,6 +13,9 @@ namespace SharelaneAutomationTest.Pages
         By PasswordLocator = By.Name("password");
         By LoginButtonLocator = By.XPath("//input[@value='Login']");
         By LogoutLocator = By.LinkText("Logout");
+        By LogoutTextLocator = By.ClassName("confirmation_message");
+        By HelloTextLocator = By.ClassName("user");
+        By LogoutLinkLocator = By.LinkText("Logout");
 
         public LoginPage(WebDriver driver) : base(driver) { }
 
@@ -46,6 +49,21 @@ namespace SharelaneAutomationTest.Pages
         public bool CheckLogoutLink()
         {
             return ChromeDriver.FindElement(LogoutLocator).Displayed;
+        }
+
+        public string LogoutText()
+        {
+           return ChromeDriver.FindElement(LogoutTextLocator).Text;
+        }
+
+        public string HelloText()
+        {
+            return ChromeDriver.FindElement(HelloTextLocator).Text;
+        }
+
+        public bool LogoutLink()
+        {
+            return ChromeDriver.FindElement(LogoutLinkLocator).Displayed;
         }
     }
 }

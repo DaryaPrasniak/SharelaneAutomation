@@ -13,7 +13,7 @@ namespace SharelaneAutomationTest.Tests
         [Test]
         public void Test1()
         {
-            string email = "marina_wang@252.86.sharelane.com";
+            string email = "amit_wang@955.33.sharelane.com";
             string password = "1111";
             string quantityInput = "52";
 
@@ -25,8 +25,8 @@ namespace SharelaneAutomationTest.Tests
             ShoppingCartPage.SetBookQuantity(quantityInput);
             ShoppingCartPage.ClickUpdateButton();
          
-            var discountPercentage = ChromeDriver.FindElement(By.XPath("//table/tbody/tr[2]/td[5]/p/b")).Text;
-            Assert.AreEqual(discountPercentage, "3");
+            
+            Assert.AreEqual(ShoppingCartPage.DiscountPercentage(), "3");
 
             ShoppingCartPage.ClickProceedToCheckoutButton();
         }

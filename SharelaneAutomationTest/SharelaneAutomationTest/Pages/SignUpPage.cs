@@ -17,6 +17,7 @@ namespace SharelaneAutomationTest.Pages
         By Password1Locator = By.Name("password1");
         By Password2Locator = By.Name("password2");
         By RegisterButtonLocator = By.XPath("//input[@value='Register']");
+        By ConfirmationMessageLocator = By.ClassName("confirmation_message");
 
         public SignUpPage(WebDriver driver) : base(driver) { }
 
@@ -70,6 +71,11 @@ namespace SharelaneAutomationTest.Pages
             SetPassword1(password);
             SetPassword2(password);
             ClickRegisterButton();
+        }
+
+        public string ConfirmationMessage()
+        {
+            return ChromeDriver.FindElement(ConfirmationMessageLocator).Text;
         }
     }
 }

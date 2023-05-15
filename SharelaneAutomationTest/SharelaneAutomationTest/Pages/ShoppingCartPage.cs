@@ -9,42 +9,48 @@ namespace SharelaneAutomationTest.Pages
 {
     internal class ShoppingCartPage : BasePage
     {
-        By bookLocator = By.XPath("//table/tbody/tr/td[1]/table/tbody/tr[3]/td/a");
-        By shoppingCartLocator = By.LinkText("Shopping Cart");
-        By quantityInputLocator = By.Name("q");
-        By updateButtonLocator = By.XPath("//input[@value='Update']");
-        By proceedToCheckoitButton = By.XPath("//input[@value='Proceed to Checkout']");
+        By BookLocator = By.XPath("//table/tbody/tr/td[1]/table/tbody/tr[3]/td/a");
+        By ShoppingCartLocator = By.LinkText("Shopping Cart");
+        By QuantityInputLocator = By.Name("q");
+        By UpdateButtonLocator = By.XPath("//input[@value='Update']");
+        By ProceedToCheckoitButton = By.XPath("//input[@value='Proceed to Checkout']");
+        By DiscountPercentageLocator = By.XPath("//table/tbody/tr[2]/td[5]/p/b");
 
         public ShoppingCartPage(WebDriver driver) : base(driver) { }
 
         public void ClickBookLink()
         { 
-          ChromeDriver.FindElement(bookLocator).Click();
+          ChromeDriver.FindElement(BookLocator).Click();
         }
 
         public void ClickShoppingCartLink()
         { 
-          ChromeDriver.FindElement(shoppingCartLocator).Click();
+          ChromeDriver.FindElement(ShoppingCartLocator).Click();
         }
 
         public void ClearQuantityField()
         {
-            ChromeDriver.FindElement(quantityInputLocator).Clear();
+            ChromeDriver.FindElement(QuantityInputLocator).Clear();
         }
 
         public void SetBookQuantity(string quantityInput)
         {
-            ChromeDriver.FindElement(quantityInputLocator).SendKeys(quantityInput);
+            ChromeDriver.FindElement(QuantityInputLocator).SendKeys(quantityInput);
         }
 
         public void ClickUpdateButton()
         { 
-          ChromeDriver.FindElement(updateButtonLocator).Click(); 
+          ChromeDriver.FindElement(UpdateButtonLocator).Click(); 
         }
 
         public void ClickProceedToCheckoutButton()
         { 
-          ChromeDriver.FindElement(proceedToCheckoitButton).Click();
+          ChromeDriver.FindElement(ProceedToCheckoitButton).Click();
+        }
+
+        public string DiscountPercentage()
+        {
+            return ChromeDriver.FindElement(DiscountPercentageLocator).Text;
         }
     }
 }

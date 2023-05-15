@@ -11,21 +11,18 @@ namespace SharelaneAutomationTest
         [Test]
         public void Test1() 
         {
-            string email = "marina_wang@252.86.sharelane.com";
+            string email = "amit_wang@955.33.sharelane.com";
             string password = "1111";
-            string welcomeText = "Hello Marina";
+            string welcomeText = "Hello Amit";
 
             LoginPage.SetEmail(email);
             LoginPage.SetPassword(password);
-            LoginPage.ClickLoginButton();
-
-            var helloText = ChromeDriver.FindElement(By.ClassName("user"));            
-            var logoutLink = ChromeDriver.FindElement(By.LinkText("Logout"));
+            LoginPage.ClickLoginButton();         
 
             Assert.Multiple(() =>
             {
-                Assert.AreEqual(welcomeText, helloText.Text);
-                Assert.IsTrue(logoutLink.Displayed);
+                Assert.AreEqual(welcomeText, LoginPage.HelloText());
+                Assert.IsTrue(LoginPage.LogoutLink());
             });
 
             Assert.IsTrue(LoginPage.CheckLogoutLink());
@@ -35,14 +32,14 @@ namespace SharelaneAutomationTest
         [Test]
         public void Test2()
         {
-            string email = "marina_wang@252.86.sharelane.com";
+            string email = "amit_wang@955.33.sharelane.com";
             string password = "1111";
 
             LoginPage.Login(email, password);
             LoginPage.Logout();
 
-            var logoutText = ChromeDriver.FindElement(By.ClassName("confirmation_message"));
-            Assert.AreEqual("You've been logged out", logoutText.Text);
+            //var logoutText = ChromeDriver.FindElement(By.ClassName("confirmation_message"));
+            Assert.AreEqual("You've been logged out", LoginPage.LogoutText());
         }
     }
 }

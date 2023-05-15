@@ -12,6 +12,7 @@ namespace SharelaneAutomationTest.Pages
         By SearchInputLocator = By.Name("keyword");
         By SearchButtonLocator = By.XPath("//input[@value='Search']");
         By addToCartButton = By.XPath("//table/tbody/tr/td[2]/p[2]/a");
+        By addToCartButton1Locator = By.XPath("//table/tbody/tr[5]/td/table[2]");
 
         public SearchPage(WebDriver driver) : base(driver) { }
 
@@ -33,7 +34,12 @@ namespace SharelaneAutomationTest.Pages
 
         public void ClickAddToCartButton()
         {
-          ChromeDriver.FindElement(addToCartButton).Click();
+            ChromeDriver.FindElement(addToCartButton).Click();
+        }
+
+        public void AddToCartButton1()
+        {
+            ChromeDriver.FindElement(addToCartButton1Locator);
         }
     }
 }
