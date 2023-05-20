@@ -20,9 +20,21 @@ namespace SharelaneAutomationTest
         public CheckoutPage CheckoutPage { get; set; }
 
         [SetUp]
-        public void Setup()
+        public void SetUp()
         {
-            ChromeDriver = new ChromeDriver();
+            string browser = TestContext.Parameters.Get("Browser");
+
+            switch (browser)
+            {
+                case "headless":
+                    ChromeOptions options = new ChromeOptions();
+                    options.AddArgument("--headless");
+                    break;
+                default:
+                    ChromeDriver = new ChromeDriver();
+                    break;
+            }
+
             ChromeDriver.Manage().Window.Maximize();
             ChromeDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(15);
             ChromeDriver.Navigate().GoToUrl("https://sharelane.com/cgi-bin/main.py");
